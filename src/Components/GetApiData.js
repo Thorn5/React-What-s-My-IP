@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
+import DisplayIPDetails from "../Components/DisplayIPDetails";
 
-const GetApiData = ({ apiData, setApiData, apiString }) => {
+const GetApiData = ({ apiData, setApiData }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const apiUrl = (`https://geo.ipify.org/api/v2/country,city?apiKey=${process.env.REACT_APP_IPIFY_API}`)
+console.log(apiUrl);
   useEffect(() => {
     function fetchData() {
-      fetch(apiString)
+      fetch(apiUrl)
         .then((response) => response.json())
         .then((data) => setApiData(data))
         .catch(() => setError("error message"))
@@ -17,7 +19,7 @@ const GetApiData = ({ apiData, setApiData, apiString }) => {
 
   return (
     <div>
-      {loading ? <p>Loading..</p> : apiData ? apiData.ip : <p>Error</p>}
+      {loading ? <p>Loading..</p> : apiData ? <DisplayIPDetails apiData={apiData} /> : <p>Error</p>}
     </div>
   );
 };
