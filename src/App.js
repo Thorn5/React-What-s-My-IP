@@ -1,5 +1,7 @@
 import './App.css';
 import React, { useState } from "react";
+import GetApiData from './Components/GetApiData';
+import DisplayIPDetails from './Components/DisplayIPDetails';
 import TestAPI from './Components/TestAPI';
 
 
@@ -8,10 +10,13 @@ function App() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [userUrl, setUserUrl] = useState("8.8.8.8");
+  console.log(apiData.ip);
   return (
     <div className="App">
     <h3>SandBox Branch</h3>
-    <TestAPI apiData={apiData} setApiData={setApiData} error={error} setError={setError} loading={loading} setLoading={setLoading} userUrl={userUrl} setUserUrl={setUserUrl}/>
+    {/* <GetApiData apiData={apiData} setApiData={setApiData} error={error} setError={setError} loading={loading} setLoading={setLoading} userUrl={userUrl} setUserUrl={setUserUrl} /> */}
+    <DisplayIPDetails apiData={apiData} userUrl={userUrl} setUserUrl={setUserUrl} />
+    {/* <TestAPI apiData={apiData} setApiData={setApiData} error={error} setError={setError} loading={loading} setLoading={setLoading} userUrl={userUrl} setUserUrl={setUserUrl}/> */}
     </div>
   );
 }
