@@ -19,7 +19,7 @@ const GetApiData = ({ apiData, setApiData, apiString }) => {
   return (
     <div>
       {loading ? <p>Loading..</p> : apiData ? <DisplayIPDetails apiData={apiData} /> : <p>Error</p>}
-      
+      <REACT_APP_USER_IP_DATA=apiData/>
     </div>
   );
 };
