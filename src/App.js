@@ -7,13 +7,14 @@ import DisplayIPDetails from "./Components/DisplayIPDetails";
 function App() {
   const [apiData, setApiData] = useState(null);
   const [apiKey, setApiKey] = useState("at_9Ph3l5ptOchbzCa9X17mki9GkuQIK");
-  const [userIp, setUserIp] = useState("8.8.8.8");
+  // const [userIp, setUserIp] = useState("87.153.54.148");
   const [apiString, setApiString] = useState(
-    `https://geo.ipify.org/api/v2/country,city?apiKey=${apiKey}&ipAddress=${userIp}`
+    // `https://geo.ipify.org/api/v2/country,city?apiKey=${apiKey}&ipAddress=${userIp}`
+    `https://geo.ipify.org/api/v2/country,city?apiKey=${apiKey}`
   );
   // console.log("UserIP: " + userIp);
   // console.log(apiString);
-  console.log(apiData);
+  // console.log(apiData);
   // console.log(apiData.ip);
   return (
     <div className="App">
