@@ -4,16 +4,15 @@ import GetApiData from "./Components/GetApiData";
 
 function App() {
   const [apiData, setApiData] = useState(null);
-  const [apiKey, setApiKey] = useState(develoment.env.REACT_APP_IPIFY_API);
-  const [apiString, setApiString] = useState(
-    `https://geo.ipify.org/api/v2/country,city?apiKey=${apiKey}`
-  );
+  // const [apiKey, setApiKey] = useState(development.env.REACT_APP_IPIFY_API);
+  // const apiKey = development.env.REACT_APP_IPIFY_API ;
+  // const [apiString, setApiString] = useState(`https://geo.ipify.org/api/v2/country,city?apiKey=${development.env.REACT_APP_IPIFY_API}`);
+  
   return (
     <div className="App">
       <GetApiData
         apiData={apiData}
         setApiData={setApiData}
-        apiString={apiString}
       />
     </div>
   );
