@@ -2,7 +2,6 @@ import "./App.css";
 import React, { useState } from "react";
 import GetApiData from "./Components/GetApiData";
 
-
 function App() {
   const [apiData, setApiData] = useState(null);
   const [apiKey, setApiKey] = useState("at_9Ph3l5ptOchbzCa9X17mki9GkuQIK");
