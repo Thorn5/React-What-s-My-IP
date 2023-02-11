@@ -1,40 +1,56 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const TestAPI = () => {
-    const [data, setData] = useState(null);
+    const [apiData, setApiData] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [userUrl, setUserUrl] = useState("")
+    const [userUrl, setUserUrl] = useState("87.153.54.148")
 
     const ale_key = "at_TVG63iHfwfaDK3aS3cXHeIiGHgrbO"
 
-    const fetchData = () => {
-        fetch(`https://geo.ipify.org/api/v2/country,city,vpn?apiKey=${ale_key}&ipAddress=${userUrl}`
+    useEffect( () => {
+
+        async function fetchData () {
+            // await  fetch(`https://geo.ipify.org/api/v2/country,city,vpn?apiKey=${ale_key}&ipAddress=${userUrl}`
+            await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=at_ZMa23mQ2nIaxv2YKfDSuCwZUPeQ5w&ipAddress=${userUrl}`
+            )
+                .then((response) => response.json())
+                .then((data) => setApiData(data))
+                .catch(() => setError("error message"))
+                .finally(() => setLoading(true));
+
+            }
+            // console.log(apiData);
+            // console.log(apiData.ip);
+            fetchData();
+        }, []);
             
-        )
-            .then((response) => response.json())
-            .then((data) => setData(data))
-            .catch(() => setError("error message"))
-            .finally(() => setLoading(true));
-    };
 
-    const TrygClick =() => {
-        setUserUrl(87.153.54.148)
-    }
-    
-    const AlleClick =() => {
-        setUserUrl(93.229.201.99)
-    }
+const TrygClick = () => {
+    setUserUrl("87.153.54.148")
+    console.log(userUrl);
+}
+
+const AlleClick = () => {
+    setUserUrl("93.229.201.99")
+    console.log(userUrl);
+}
+
+const JapanClick =()=>{
+    setUserUrl("101.110.0.0")
+}
 
 
-    return (
-        <div>
+return (
+    <>
         <button onClick={TrygClick}>Tryg</button>
         <button onClick={AlleClick}>Alle</button>
-        {data.ip}          
-        </div>
-        
-        );
+        <button onClick={JapanClick}>Japan</button>
+        <div>Your IP is: {apiData.ip}</div>
+        <div>Your location is: {apiData.location.city}</div>
+        {/* <div>Your location is: {apiData.isp}</div> */}
+    </>
+);
 };
 
 export default TestAPI;
