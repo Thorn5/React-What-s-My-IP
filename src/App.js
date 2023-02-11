@@ -23,7 +23,7 @@ function App() {
         setApiData={setApiData}
         apiString={apiString}
       />
-      <DisplayIPDetails apiData={apiData} />
+      {/* <DisplayIPDetails apiData={apiData} /> */}
     </div>
   );
 }
