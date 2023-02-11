@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import DisplayIPDetails from "../Components/DisplayIPDetails";
 
 const GetApiData = ({ apiData, setApiData, apiString }) => {
   const [loading, setLoading] = useState(true);
@@ -17,7 +18,8 @@ const GetApiData = ({ apiData, setApiData, apiString }) => {
 
   return (
     <div>
-      {loading ? <p>Loading..</p> : apiData ? apiData.ip : <p>Error</p>}
+      {loading ? <p>Loading..</p> : apiData ? <DisplayIPDetails apiData={apiData} /> : <p>Error</p>}
+      
     </div>
   );
 };
