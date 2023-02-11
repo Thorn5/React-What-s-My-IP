@@ -1,22 +1,29 @@
-import './App.css';
+import "./App.css";
 import React, { useState } from "react";
-import GetApiData from './Components/GetApiData';
-import DisplayIPDetails from './Components/DisplayIPDetails';
-import TestAPI from './Components/TestAPI';
-
+import SetIP from "./Components/SetIP";
+import GetApiData from "./Components/GetApiData";
+import DisplayIPDetails from "./Components/DisplayIPDetails";
 
 function App() {
   const [apiData, setApiData] = useState(null);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [userUrl, setUserUrl] = useState("8.8.8.8");
-  console.log(apiData.ip);
+  const [apiKey, setApiKey] = useState("at_9Ph3l5ptOchbzCa9X17mki9GkuQIK");
+  const [userIp, setUserIp] = useState("8.8.8.8");
+  const [apiString, setApiString] = useState(
+    `https://geo.ipify.org/api/v2/country,city?apiKey=${apiKey}&ipAddress=${userIp}`
+  );
+  // console.log("UserIP: " + userIp);
+  // console.log(apiString);
+  console.log(apiData);
+  // console.log(apiData.ip);
   return (
     <div className="App">
-    <h3>SandBox Branch</h3>
-    {/* <GetApiData apiData={apiData} setApiData={setApiData} error={error} setError={setError} loading={loading} setLoading={setLoading} userUrl={userUrl} setUserUrl={setUserUrl} /> */}
-    <DisplayIPDetails apiData={apiData} userUrl={userUrl} setUserUrl={setUserUrl} />
-    {/* <TestAPI apiData={apiData} setApiData={setApiData} error={error} setError={setError} loading={loading} setLoading={setLoading} userUrl={userUrl} setUserUrl={setUserUrl}/> */}
+      {/* <SetIP apiKey={apiKey} userIp={userIp} setUserIp={setUserIp} setApiString={setApiString} /> */}
+      <GetApiData
+        apiData={apiData}
+        setApiData={setApiData}
+        apiString={apiString}
+      />
+      <DisplayIPDetails apiData={apiData} />
     </div>
   );
 }
@@ -27,4 +34,3 @@ export default App;
 // user: zktvmxskprvxowhvgw@tcwlx.com
 // pass: TtRrYyGgVvEe_456
 // API: at_9Ph3l5ptOchbzCa9X17mki9GkuQIK
-

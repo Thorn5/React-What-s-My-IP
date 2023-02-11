@@ -1,24 +1,27 @@
 import React, { useState, useEffect } from "react";
 
-const GetApiData =({apiData, setApiData, error, setError, loading, setLoading, userUrl, setUserUrl})=>{
-    useEffect(() => {
-        async function fetchData() {
-            // fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=at_ZMa23mQ2nIaxv2YKfDSuCwZUPeQ5w&ipAddress=${userUrl}`
-            await fetch(
-                `https://geo.ipify.org/api/v2/country,city?apiKey=at_ZMa23mQ2nIaxv2YKfDSuCwZUPeQ5w&ipAddress=${userUrl}`
-            )
-                .then((response) => response.json())
-                .then((data) => setApiData(data))
-                .catch(() => setError("error message"))
-                .finally(() => setLoading(true));
-        }
-        fetchData();
-    }, []);
-    return(
-        <div>
-            GetApiData.js
-        </div>
-    )
-}
+  const GetApiData = ({ apiData, setApiData, apiString }) => {
 
-export default GetApiData
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null)
+
+    useEffect(() => {
+       function fetchData() {
+         fetch(apiString)
+          .then((response) => response.json())
+          .then((data) => setApiData(data))
+          .catch(() => setError("error message"))
+          .finally(() => setLoading(false));
+      }
+      fetchData();
+    }, []);
+
+    return 
+    <div>
+        {loading ? <p>Loading..</p> : (apiData ? apiData.ip : {error})}
+    </div>;
+  };
+
+
+export default GetApiData;
+
