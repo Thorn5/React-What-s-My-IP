@@ -1,12 +1,10 @@
 import "./ShowLocation.css";
 import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, useMap, Popup, Marker } from "react-leaflet";
-// import L from "leaflet";
 
 const ShowLocation = ({apiData}) => {
-  console.log(apiData);
-  // const position = [51.505, -0.09]
-  const position = [apiData.location.lat, apiData.location.lng]
+  // const position = [apiData.location.lat, apiData.location.lng]
+  const position = [apiData.lat, apiData.lon]
   return (
     <MapContainer center={position} zoom={13} scrollWheelZoom={false}>
       <TileLayer
@@ -15,7 +13,7 @@ const ShowLocation = ({apiData}) => {
       />
       <Marker position={position}>
         <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
+          Your IP location
         </Popup>
       </Marker>
     </MapContainer>
