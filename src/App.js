@@ -1,18 +1,16 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import GetApiData from "./Components/GetApiData";
-import ShowLocation from "./Components/ShowLocation";
 
 function App() {
-  const [apiData, setApiData] = useState(null);
-  
+  const [apiData, setApiData] = useState({});
+
   return (
     <div className="App">
-      {/* <GetApiData
+      <GetApiData
         apiData={apiData}
         setApiData={setApiData}
-      /> */}
-      <ShowLocation />
+      />
     </div>
   );
 }
