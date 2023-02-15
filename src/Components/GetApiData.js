@@ -4,7 +4,7 @@ import DisplayIPDetails from "../Components/DisplayIPDetails";
 const GetApiData = ({ apiData, setApiData }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const apiUrl = (`https://geo.ipify.org/api/v2/country,city?apiKey=${process.env.REACT_APP_IPIFY_API}`)
+  // const apiUrl = (`https://geo.ipify.org/api/v2/country,city?apiKey=${process.env.REACT_APP_IPIFY_API}`)
   useEffect(() => {
     function fetchData() {
       fetch(apiUrl)
