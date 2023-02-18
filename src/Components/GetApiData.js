@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Card, Grid } from "@mui/material";
 import { Container } from "@mui/system";
 import React, { useState, useEffect } from "react";
 import DisplayIPDetails from "../Components/DisplayIPDetails";
@@ -36,15 +36,48 @@ const GetApiData = ({ apiData, setApiData }) => {
         <p>Loading..</p>
       ) : apiData ? (
         <>
-          <Container maxWidth="sm">
+          <Grid container spacing={2}
+            style={{
+              // center all the elements
+              display: "flex",
+              alignItems: "center",
+            }}>
             {apiData.country}
-            <Container>
-              <DisplayIPDetails apiData={apiData} />
-              <DateInfo apiData={apiData} />
-              <CountryInfo apiData={apiData} />
-            </Container>
-            <ShowLocation apiData={apiData} />
-          </Container>
+            <Grid item xs={6}
+              style={{
+                // center all the elements
+                // display: "flex",
+                alignContent: "center",
+              }}>
+              <Card variant="outlined"
+                sx={{
+                  display: 'inline-block',
+                  mx: '2px',
+                  transform: 'scale(1)'
+                }} >
+                <DisplayIPDetails apiData={apiData} />
+              </Card>
+              <Card variant="outlined"
+                sx={{
+                  display: 'inline-block',
+                  mx: '2px',
+                  transform: 'scale(1)'
+                }} >
+                <DateInfo apiData={apiData} />
+              </Card>
+              <Card variant="outlined"
+                sx={{
+                  display: 'inline-block',
+                  mx: '2px',
+                  transform: 'scale(1)'
+                }} >
+                <CountryInfo apiData={apiData} />
+              </Card>
+            </Grid>
+            <Grid item xs={2}>
+              <ShowLocation apiData={apiData} />
+            </Grid>
+          </Grid>
         </>
       ) : (
         <p>{error}</p>
