@@ -9,26 +9,31 @@ function App() {
 
   useEffect(() => {
     setApiData({
-      "ip": "91.22.166.170",
+      "ip": "122.209.48.3",
       "location": {
-        "country": "DE",
-        "region": "Nordrhein-Westfalen",
-        "city": "Düsseldorf",
-        "lat": 51.22172,
-        "lng": 6.77616,
-        "postalCode": "40469",
-        "timezone": "+01:00",
-        "geonameId": 2934246
+          "country": "JP",
+          "region": "Tokyo Prefecture",
+          "city": "Chiyoda",
+          "lat": 35.68449,
+          "lng": 139.75056,
+          "postalCode": "",
+          "timezone": "+09:00",
+          "geonameId": 11749713
       },
       "as": {
-        "asn": 3320,
-        "name": "DTAG",
-        "route": "91.0.0.0/10",
-        "domain": "https://globalcarrier.telekom.com",
-        "type": "NSP"
+          "asn": 17506,
+          "name": "APNIC-17408",
+          "route": "122.208.0.0/14",
+          "domain": "http://www.arteria-net.com/en/",
+          "type": "NSP"
       },
-      "isp": "Deutsche Telekom AG"
-    })
+      "isp": "ARTERIA Networks Corporation",
+      "proxy": {
+          "proxy": false,
+          "vpn": false,
+          "tor": false
+      }
+  })
 
   }, [])
 

@@ -20,6 +20,10 @@ const DateInfo = () => {
     minute: 36,
   });
 
+  // const hhmm = DateTime.local().toFormat('HH:mm');
+  const hhmm = DateTime.local().toFormat('h:mm a');
+  console.log(hhmm); // 07:15
+
   return (
     <div>
       <div>
@@ -32,6 +36,9 @@ const DateInfo = () => {
       <div>
         Time in New York city is: {nyDate.hour}:
         {String(nyDate.minute).padStart(2, "0")}
+      </div>
+      <div>
+        TrygTime: {hhmm}
       </div>
     </div>
   );
