@@ -6,6 +6,8 @@ import CountryInfo from "./CountryInfo";
 const GetApiData = ({ apiData, setApiData }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  // const apiUrl = (`https://geo.ipify.org/api/v2/country,city?apiKey=${process.env.REACT_APP_IPIFY_API}`)
+  // const apiUrl = (`http://ip-api.com/json/`)
   const apiUrl = `http://ip-api.com/json/`;
   useEffect(() => {
     function fetchData() {
