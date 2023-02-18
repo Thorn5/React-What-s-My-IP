@@ -1,3 +1,5 @@
+import { Grid } from "@mui/material";
+import { Container } from "@mui/system";
 import React, { useState, useEffect } from "react";
 import DisplayIPDetails from "../Components/DisplayIPDetails";
 import ShowLocation from "../Components/ShowLocation";
@@ -7,7 +9,7 @@ import DateInfo from "./DateInfo";
 const GetApiData = ({ apiData, setApiData }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-    //! uncomment before publish
+  //! uncomment before publish
   // const apiUrl = (`https://geo.ipify.org/api/v2/country,city?apiKey=${process.env.REACT_APP_IPIFY_API}`)
   // console.log(apiUrl);
   // useEffect(() => {
@@ -21,13 +23,12 @@ const GetApiData = ({ apiData, setApiData }) => {
   //   fetchData();
   // }, []);
 
-useEffect(() => {
-  setLoading(false)
-}, [])
+  useEffect(() => {
+    setLoading(false)
+  }, [])
 
 
-console.log(apiData);
-
+  console.log(apiData);
 
   return (
     <div>
@@ -35,16 +36,21 @@ console.log(apiData);
         <p>Loading..</p>
       ) : apiData ? (
         <>
-          {apiData.country}
-          <DisplayIPDetails apiData={apiData} />
-          <DateInfo apiData={apiData} />
-          <ShowLocation apiData={apiData} />
-          <CountryInfo apiData={apiData} />
+          <Container maxWidth="sm">
+            {apiData.country}
+            <Container>
+              <DisplayIPDetails apiData={apiData} />
+              <DateInfo apiData={apiData} />
+              <CountryInfo apiData={apiData} />
+            </Container>
+            <ShowLocation apiData={apiData} />
+          </Container>
         </>
       ) : (
         <p>{error}</p>
-      )}
-    </div>
+      )
+      }
+    </div >
   );
 };
 
