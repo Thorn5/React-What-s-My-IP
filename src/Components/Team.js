@@ -28,9 +28,7 @@ const Team = () => {
         fetch(gitHubUrl + member.githubName)
           .then((response) => response.json())
           .then((data) => {
-            console.log('data', data);
             setTeamInfo((teamInfo) => [...teamInfo, data]);
-            console.log(teamInfo);
           })
           .catch(() => console.log("error message"))
           .finally(() => console.log("loading"));
@@ -49,8 +47,8 @@ const Team = () => {
         margin: '0 auto',
         maxWidth: '800px',
       }}>
-      {teamInfo.map((member) => (
-        <Grid item xs={4} key={member.id}>
+      {teamInfo.map((member, index) => (
+        <Grid item xs={4} key={index}>
           <Card>
             <CardMedia component="img"
               image={member.avatar_url}
