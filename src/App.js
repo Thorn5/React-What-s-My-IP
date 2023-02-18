@@ -10,11 +10,11 @@ function App() {
   return (
     <div className="App">
       <Header />
-      {/* <GetApiData
+      <GetApiData
         apiData={apiData}
         setApiData={setApiData}
-      /> */}
-      <Team />
+      />
+      {/* <Team /> */}
     </div>
   );
 }
