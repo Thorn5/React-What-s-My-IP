@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/React-What-s-My-IP/static/css/main.70c6f420.css",
+    "main.js": "/React-What-s-My-IP/static/js/main.324da454.js",
+    "static/js/787.1b2d8a05.chunk.js": "/React-What-s-My-IP/static/js/787.1b2d8a05.chunk.js",
+    "index.html": "/React-What-s-My-IP/index.html",
+    "main.70c6f420.css.map": "/React-What-s-My-IP/static/css/main.70c6f420.css.map",
+    "main.324da454.js.map": "/React-What-s-My-IP/static/js/main.324da454.js.map",
+    "787.1b2d8a05.chunk.js.map": "/React-What-s-My-IP/static/js/787.1b2d8a05.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.70c6f420.css",
+    "static/js/main.324da454.js"
+  ]
+}
