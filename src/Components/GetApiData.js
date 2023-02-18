@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import DisplayIPDetails from "../Components/DisplayIPDetails";
 import ShowLocation from "../Components/ShowLocation";
 import CountryInfo from "./CountryInfo";
+import DateInfo from "./DateInfo";
 
 const GetApiData = ({ apiData, setApiData }) => {
   const [loading, setLoading] = useState(true);
@@ -36,6 +37,7 @@ console.log(apiData);
         <>
           {apiData.country}
           <DisplayIPDetails apiData={apiData} />
+          <DateInfo apiData={apiData} />
           <ShowLocation apiData={apiData} />
           <CountryInfo apiData={apiData} />
         </>
