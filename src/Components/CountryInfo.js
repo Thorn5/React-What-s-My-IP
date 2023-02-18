@@ -2,14 +2,11 @@ import React, { useState, useEffect } from "react";
 import "./CountryInfo.css";
 
 const CountryInfo = ({ apiData }) => {
-  // console.log(apiData.country);
   const [extraInfo, setExtraInfo] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const country = apiData.country.toLowerCase();
-  // console.log(country);
-  // const apiUrl = `http://restcountries.com/v3.1/name/${country}`;
-  const apiUrl = `https://restcountries.com/v3.1/name/${country}`;
+  const country = apiData.location.country;
+  const apiUrl = `https://restcountries.com/v3.1/alpha/${country}`;
   useEffect(() => {
     function fetchData() {
       fetch(apiUrl)
