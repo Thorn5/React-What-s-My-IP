@@ -18,7 +18,6 @@ const CountryInfo = ({ apiData }) => {
     fetchData();
   }, []);
 
-  console.log(extraInfo);
   return (
     <div>
       {loading ? (
