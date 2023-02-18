@@ -3,8 +3,7 @@ import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, useMap, Popup, Marker } from "react-leaflet";
 
 const ShowLocation = ({ apiData }) => {
-  // const position = [apiData.location.lat, apiData.location.lng]
-  const position = [apiData.lat, apiData.lon];
+  const position = [apiData.location.lat, apiData.location.lng]
   return (
     <MapContainer center={position} zoom={13} scrollWheelZoom={false}>
       <TileLayer

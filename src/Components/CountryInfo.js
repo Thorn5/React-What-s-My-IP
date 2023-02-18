@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from "react";
-import "./CountryInfo.css"
+import "./CountryInfo.css";
 
 const CountryInfo = ({ apiData }) => {
-  // console.log(apiData.country);
-  const [extraInfo, setExtraInfo] = useState({})
+  const [extraInfo, setExtraInfo] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const country = apiData.country.toLowerCase();
-  // console.log(country);
-  // const apiUrl = `http://restcountries.com/v3.1/name/${country}`;
-  const apiUrl = `https://restcountries.com/v3.1/name/${country}`;
+  const country = apiData.location.country;
+  const apiUrl = `https://restcountries.com/v3.1/alpha/${country}`;
   useEffect(() => {
     function fetchData() {
       fetch(apiUrl)
@@ -21,35 +18,30 @@ const CountryInfo = ({ apiData }) => {
     fetchData();
   }, []);
 
-  // console.log(apiData.country);
-  console.log(extraInfo);
-  // console.log(apiUrl);
   return (
     <div>
       {loading ? (
         <p>Loading..</p>
       ) : apiData ? (
         <div>
-          <div>
-            This IP is located in {extraInfo[0].name.common}
-          </div>
-          <div>
-            The spoken language is {extraInfo[0].languages.deu}
-          </div>
-          <div>
-            The coat of arms is:
-            <img src={extraInfo[0].coatOfArms.svg} alt="Logo" />
-          </div>
+          <div>This IP is located in {extraInfo[0].name.common}</div>
+          <div>The spoken language is {extraInfo[0].languages.deu}</div>
+          {!extraInfo[0].coatOfArms.svg ? null : (
+            <div>
+              The coat of arms is:{" "}
+              <img src={extraInfo[0].coatOfArms.svg} alt="Coat of arms" />
+            </div>
+          )}
           <div>
             And the flag is:
-            <img src={extraInfo[0].flags.svg} alt="Logo" />
+            <img src={extraInfo[0].flags.svg} alt="Country Flag" />
           </div>
-
-        </div>) : (
+        </div>
+      ) : (
         <p>{error}</p>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default CountryInfo
+export default CountryInfo;

@@ -2,22 +2,32 @@ import React, { useState, useEffect } from "react";
 import DisplayIPDetails from "../Components/DisplayIPDetails";
 import ShowLocation from "../Components/ShowLocation";
 import CountryInfo from "./CountryInfo";
+import DateInfo from "./DateInfo";
 
 const GetApiData = ({ apiData, setApiData }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const apiUrl = `http://ip-api.com/json/`;
-  useEffect(() => {
-    function fetchData() {
-      fetch(apiUrl)
-        .then((response) => response.json())
-        .then((data) => setApiData(data))
-        .catch(() => setError("error message"))
-        .finally(() => setLoading(false));
-    }
-    fetchData();
-    console.log(apiData);
-  }, []);
+    //! uncomment before publish
+  // const apiUrl = (`https://geo.ipify.org/api/v2/country,city?apiKey=${process.env.REACT_APP_IPIFY_API}`)
+  // console.log(apiUrl);
+  // useEffect(() => {
+  //   function fetchData() {
+  //     fetch(apiUrl)
+  //       .then((response) => response.json())
+  //       .then((data) => setApiData(data))
+  //       .catch(() => setError("error message"))
+  //       .finally(() => setLoading(false));
+  //   }
+  //   fetchData();
+  // }, []);
+
+useEffect(() => {
+  setLoading(false)
+}, [])
+
+
+console.log(apiData);
+
 
   return (
     <div>
@@ -27,6 +37,7 @@ const GetApiData = ({ apiData, setApiData }) => {
         <>
           {apiData.country}
           <DisplayIPDetails apiData={apiData} />
+          <DateInfo apiData={apiData} />
           <ShowLocation apiData={apiData} />
           <CountryInfo apiData={apiData} />
         </>
