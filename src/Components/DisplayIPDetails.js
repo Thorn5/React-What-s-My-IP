@@ -1,6 +1,6 @@
 import React from "react";
 
-const DisplayIPDetails = ({apiData}) => {
+const DisplayIPDetails = ({ apiData }) => {
     return (
         <div>
             <div>
@@ -8,8 +8,8 @@ const DisplayIPDetails = ({apiData}) => {
             <div>Your location is: {apiData.location.city}</div>
             <div>Your ISP is: {apiData.isp}</div> */}
                 <div>Your IP is: {apiData.query}</div>
-            <div>Your location is: {apiData.city}</div>
-            <div>Your ISP is: {apiData.isp}</div>
+                <div>Your location is: {apiData.city}</div>
+                <div>Your ISP is: {apiData.isp}</div>
             </div>
         </div>
     );

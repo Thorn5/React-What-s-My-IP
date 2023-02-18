@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./CountryInfo.css"
 
-const CountryInfo = ({apiData}) => {
-    const [ extraInfo, setExtraInfo] = useState({})
-    const [loading, setLoading] = useState(true);
+const CountryInfo = ({ apiData }) => {
+  // console.log(apiData.country);
+  const [extraInfo, setExtraInfo] = useState({})
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const country = apiData.country.toLowerCase();
   // console.log(country);
@@ -29,22 +30,22 @@ const CountryInfo = ({apiData}) => {
         <p>Loading..</p>
       ) : apiData ? (
         <div>
-        <div>
-          This IP is located in {extraInfo[0].name.common} 
-        </div>
-        <div>
-          The spoken language is {extraInfo[0].languages.deu}
-        </div>
-        <div>
-          The coat of arms is:
-          <img src={extraInfo[0].coatOfArms.svg} alt="Logo" />
-        </div>
-        <div>
-          And the flag is:
-          <img src={extraInfo[0].flags.svg} alt="Logo" />
-        </div>
-        
-      </div>      ) : (
+          <div>
+            This IP is located in {extraInfo[0].name.common}
+          </div>
+          <div>
+            The spoken language is {extraInfo[0].languages.deu}
+          </div>
+          <div>
+            The coat of arms is:
+            <img src={extraInfo[0].coatOfArms.svg} alt="Logo" />
+          </div>
+          <div>
+            And the flag is:
+            <img src={extraInfo[0].flags.svg} alt="Logo" />
+          </div>
+
+        </div>) : (
         <p>{error}</p>
       )}
     </div>
