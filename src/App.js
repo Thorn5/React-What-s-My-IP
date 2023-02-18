@@ -40,7 +40,7 @@ function App() {
         apiData={apiData}
         setApiData={setApiData}
       />
-      {/* <Team /> */}
+      <Team />
     </div>
   );
 }
