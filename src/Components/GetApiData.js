@@ -27,6 +27,7 @@ useEffect(() => {
 
 console.log(apiData);
 
+
   return (
     <div>
       {loading ? (
