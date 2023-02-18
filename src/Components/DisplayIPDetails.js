@@ -2,6 +2,7 @@ import React from "react";
 import DateInfo from "./DateInfo";
 
 const DisplayIPDetails = ({ apiData }) => {
+
   return (
     <div>
       <div>
@@ -15,6 +16,7 @@ const DisplayIPDetails = ({ apiData }) => {
       </div>
     </div>
   );
+
 };
 
 export default DisplayIPDetails;
